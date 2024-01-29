@@ -16,4 +16,5 @@ public class FlightDimensionService {
         int rowsUpdated = flightDimensionRepository.updateLengthAndBreadth(5555.0, 500.0, "AirMalaysia-222");
         System.out.println("Rows Updated : " + rowsUpdated);
     }
+
 }

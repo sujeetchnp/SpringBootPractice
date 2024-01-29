@@ -37,6 +37,10 @@ public class MainRunner {
 //        myAppService.printAppName();
 
         FlightService flightService = context.getBean(FlightService.class);
+        flightService.setTemp("abc");
+        System.out.println(flightService.getTemp());
+        FlightService flightService1 = context.getBean(FlightService.class);
+        System.out.println(flightService1.getTemp());
 //        System.out.println(flightService.getAllFlights());
 //        flightService.multipleOperation();
 
@@ -64,10 +68,9 @@ public class MainRunner {
 
     }
 
-    public static void flight() {
+    public static void flight(FlightRepository flightRepository) {
 
-
-//        Flight flight = new Flight();
+//        FlightEntity flight = new FlightEntity();
 //        flight.setFlightName("RoyalNepal");
 //        flight.setSource("KTM");
 //        flight.setDestination("DOHA");
@@ -151,7 +154,7 @@ public class MainRunner {
         flight1.setFlightId(44);
         flightTicket1.setFlight(flight1);
 
-        FlightUser flightUser1 = new FlightUser();
+        FlightUserEntity flightUser1 = new FlightUserEntity();
         flightUser1.setUserId(42);
         flightTicket1.setFlightUser(flightUser1);
 
@@ -174,7 +177,7 @@ public class MainRunner {
 
 
     public static void userAddress(UserAddressRepository userAddressRepository) {
-        UserAddress userAddress = new UserAddress();
+        UserAddressEntity userAddress = new UserAddressEntity();
         userAddress.setCity("Boston");
         userAddress.setCountry("USA");
         userAddress.setZipCode("03108");
@@ -190,11 +193,11 @@ public class MainRunner {
     }
 
     public static void flightUser(FlightUserRepository flightUserRepository) {
-        FlightUser flightUser1 = new FlightUser();
+        FlightUserEntity flightUser1 = new FlightUserEntity();
         flightUser1.setName("Annie");
         flightUser1.setPhone(77354678);
 
-        UserAddress userAddress1 = new UserAddress();
+        UserAddressEntity userAddress1 = new UserAddressEntity();
         userAddress1.setId(39);
         flightUser1.setUserAddress(userAddress1);
 
@@ -215,7 +218,7 @@ public class MainRunner {
 
     public static void flightDimension(FlightRepository flightRepository, FlightDimensionRepository flightDimensionRepository) {
 
-        FlightDimension flightDimension = new FlightDimension();
+        FlightDimensionEntity flightDimension = new FlightDimensionEntity();
         flightDimension.setFlightName("UnitedAirlines-999");
         flightDimension.setHeight(1000.0);
         flightDimension.setLength(900.0);
@@ -225,7 +228,7 @@ public class MainRunner {
         flight.setFlightDimension(flightDimension);
         flight.setSource("SanFrancisco");
         flight.setDestination("Boston");
-        flight.setFlightName("UnitedAirlines-999");
+//        flight.setFlightName("UnitedAirlines-999");
 //        flightRepository.save(flight);
 
 

@@ -27,7 +27,7 @@ public class FlightTicketEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "t_uId")
-    private FlightUser flightUser;
+    private FlightUserEntity flightUser;
 
     public Integer gettId() {
         return tId;
@@ -69,11 +69,11 @@ public class FlightTicketEntity {
         this.flight = flight;
     }
 
-    public FlightUser getFlightUser() {
+    public FlightUserEntity getFlightUser() {
         return flightUser;
     }
 
-    public void setFlightUser(FlightUser flightUser) {
+    public void setFlightUser(FlightUserEntity flightUser) {
         this.flightUser = flightUser;
     }
 

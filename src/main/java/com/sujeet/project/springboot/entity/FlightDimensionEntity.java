@@ -6,7 +6,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "flight_dimensions")
-public class FlightDimension {
+public class FlightDimensionEntity {
 
     @Id
     private String flightName;

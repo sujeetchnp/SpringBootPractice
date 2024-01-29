@@ -13,9 +13,10 @@ public interface FlightRepository extends JpaRepository<FlightEntity, Integer> {
 
     List<FlightEntity> findAll();
 
+
     FlightEntity findByFlightName(String flightName);
 
-    FlightEntity findBySourceAndDestination(String s, String dest);
+    List<FlightEntity> findBySourceAndDestination(String s, String dest);
 
     List<FlightEntity> findBySource(String source);
 
@@ -32,6 +33,8 @@ public interface FlightRepository extends JpaRepository<FlightEntity, Integer> {
     List<FlightEntity> findDistinctBySource(String source);
 
     List<FlightEntity> findDistinctByDestination(String dest);
+
+    FlightEntity findFlightEntityByFlightId(Integer id);
 
     boolean existsBySource(String source);
 

@@ -32,6 +32,6 @@ public interface FlightTicketRepository extends JpaRepository<FlightTicketEntity
     @Query("SELECT t FROM FlightTicketEntity t")
     List<FlightTicketEntity> getAllFlightTickets(Pageable pageable);
 
-    @Query("SELECT t FROM FlightTicketEntity t")
+    @Query("SELECT t FROM FlightTicketEntity t JOIN FETCH t.flightUser JOIN Fetch t.flight ")
     List<FlightTicketEntity> getAllTickets();
 }

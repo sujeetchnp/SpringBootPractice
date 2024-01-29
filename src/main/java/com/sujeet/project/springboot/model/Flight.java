@@ -7,6 +7,16 @@ public class Flight {
     private String fDestination;
     private String fName;
 
+    private FlightDimension flightDimension;
+
+    public FlightDimension getFlightDimension() {
+        return flightDimension;
+    }
+
+    public void setFlightDimension(FlightDimension flightDimension) {
+        this.flightDimension = flightDimension;
+    }
+
     public Integer getfId() {
         return fId;
     }
@@ -37,5 +47,15 @@ public class Flight {
 
     public void setfName(String fName) {
         this.fName = fName;
+    }
+
+    @Override
+    public String toString() {
+        return "Flight{" +
+                "fId=" + fId +
+                ", fSource='" + fSource + '\'' +
+                ", fDestination='" + fDestination + '\'' +
+                ", fName='" + fName + '\'' +
+                '}';
     }
 }

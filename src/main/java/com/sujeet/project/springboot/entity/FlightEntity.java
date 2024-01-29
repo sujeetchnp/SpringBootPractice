@@ -17,6 +17,7 @@ public class FlightEntity {
     @Column(name = "f_destination")
     private String destination;
 
+    @Column(name = "f_name", insertable = false, updatable = false)
     private String flightName;
 
     @OneToMany(mappedBy = "flight", fetch = FetchType.LAZY)
@@ -24,7 +25,7 @@ public class FlightEntity {
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "f_name", referencedColumnName = "flightName")
-    private FlightDimension flightDimension;
+    private FlightDimensionEntity flightDimension;
 
     public Integer getFlightId() {
         return flightId;
@@ -62,15 +63,11 @@ public class FlightEntity {
         return flightName;
     }
 
-    public void setFlightName(String flightName) {
-        this.flightName = flightName;
-    }
-
-    public FlightDimension getFlightDimension() {
+    public FlightDimensionEntity getFlightDimension() {
         return flightDimension;
     }
 
-    public void setFlightDimension(FlightDimension flightDimension) {
+    public void setFlightDimension(FlightDimensionEntity flightDimension) {
         this.flightDimension = flightDimension;
     }
 

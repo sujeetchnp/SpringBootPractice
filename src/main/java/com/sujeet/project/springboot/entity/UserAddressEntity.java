@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "user_address")
-public class UserAddress {
+public class UserAddressEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -14,13 +14,13 @@ public class UserAddress {
     private String country;
     private String zipCode;
     @OneToOne(mappedBy = "userAddress", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private FlightUser flightUser;
+    private FlightUserEntity flightUser;
 
-    public FlightUser getFlightUser() {
+    public FlightUserEntity getFlightUser() {
         return flightUser;
     }
 
-    public void setFlightUser(FlightUser flightUser) {
+    public void setFlightUser(FlightUserEntity flightUser) {
         this.flightUser = flightUser;
     }
 

@@ -3,9 +3,7 @@ package com.sujeet.project.springboot.controllers;
 import com.sujeet.project.springboot.model.FlightTicket;
 import com.sujeet.project.springboot.service.FlightTicketService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,4 +21,9 @@ public class FlightTicketController {
 
     }
 
+    @PostMapping("/save")
+    public String saveFlightTicket(@RequestBody FlightTicket flightTicket) {
+        flightTicketService.insertTickets(flightTicket);
+        return "Flight Ticket saved successfully";
+    }
 }

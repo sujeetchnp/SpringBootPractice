@@ -5,7 +5,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "flight_users")
-public class FlightUser {
+public class FlightUserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "uId")
@@ -22,7 +22,7 @@ public class FlightUser {
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(name = "addressid")
-    private UserAddress userAddress;
+    private UserAddressEntity userAddress;
 
 
     public List<FlightTicketEntity> getFlightTickets() {
@@ -33,11 +33,11 @@ public class FlightUser {
         this.flightTickets = flightTickets;
     }
 
-    public UserAddress getUserAddress() {
+    public UserAddressEntity getUserAddress() {
         return userAddress;
     }
 
-    public void setUserAddress(UserAddress userAddress) {
+    public void setUserAddress(UserAddressEntity userAddress) {
         this.userAddress = userAddress;
     }
 

@@ -8,6 +8,10 @@ public class FlightTicket {
 
     private SeatType ticketSeatType;
 
+    private Flight flight;
+
+    private FlightUser flightUser;
+
     public Integer getTicketId() {
         return ticketId;
     }
@@ -38,5 +42,21 @@ public class FlightTicket {
 
     public void setTicketSeatType(SeatType ticketSeatType) {
         this.ticketSeatType = ticketSeatType;
+    }
+
+    public Flight getFlight() {
+        return flight;
+    }
+
+    public void setFlight(Flight flight) {
+        this.flight = flight;
+    }
+
+    public FlightUser getFlightUser() {
+        return flightUser;
+    }
+
+    public void setFlightUser(FlightUser flightUser) {
+        this.flightUser = flightUser;
     }
 }
