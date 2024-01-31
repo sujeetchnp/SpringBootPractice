@@ -2,6 +2,7 @@ package com.sujeet.project.springboot.service;
 
 import com.sujeet.project.springboot.entity.FlightDimensionEntity;
 import com.sujeet.project.springboot.entity.FlightEntity;
+import com.sujeet.project.springboot.exception.ResourceNotFoundException;
 import com.sujeet.project.springboot.model.Flight;
 import com.sujeet.project.springboot.repository.FlightRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,10 @@ public class FlightService {
 
     @Autowired
     private FlightRepository flightRepository;
+
+    public boolean existsById(Integer id) {
+        return flightRepository.existsById(id);
+    }
 
     public List<Flight> getAllFlights() {
         List<FlightEntity> flightEntityList = flightRepository.findAll();
@@ -99,6 +104,9 @@ public class FlightService {
     public Flight getFlightById(Integer id) {
 //        FlightEntity fEntity = flightRepository.findFlightEntityByFlightId(id);
         FlightEntity fEntity = flightRepository.findById(id).orElse(null);
+        if (fEntity == null) {
+            throw new ResourceNotFoundException("Flight with this " + id + " id not found. ");
+        }
         Flight entityModel = fromEntity(fEntity);
         return entityModel;
     }

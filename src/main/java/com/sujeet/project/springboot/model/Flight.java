@@ -1,13 +1,31 @@
 package com.sujeet.project.springboot.model;
 
+import javax.validation.constraints.AssertTrue;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class Flight {
     private Integer fId;
 
+    @NotNull
+    @Size(min = 3, max = 50)
     private String fSource;
+
+    @NotNull
     private String fDestination;
     private String fName;
-
     private FlightDimension flightDimension;
+
+    @AssertTrue
+    private boolean active;
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
 
     public FlightDimension getFlightDimension() {
         return flightDimension;

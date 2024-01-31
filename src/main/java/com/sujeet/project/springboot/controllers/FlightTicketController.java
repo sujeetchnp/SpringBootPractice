@@ -5,6 +5,7 @@ import com.sujeet.project.springboot.service.FlightTicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -22,7 +23,7 @@ public class FlightTicketController {
     }
 
     @PostMapping("/save")
-    public String saveFlightTicket(@RequestBody FlightTicket flightTicket) {
+    public String saveFlightTicket(@Valid @RequestBody FlightTicket flightTicket) {
         flightTicketService.insertTickets(flightTicket);
         return "Flight Ticket saved successfully";
     }

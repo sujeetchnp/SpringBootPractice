@@ -1,16 +1,35 @@
 package com.sujeet.project.springboot.model;
 
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
+
 public class FlightTicket {
     private Integer ticketId;
+    @NotNull
     private String seatNum;
-
+    @DecimalMin("100.00")
+    @DecimalMax("1000.00")
     private Double ticketPrice;
 
+    @Future
+    private LocalDate flightDate;
+    @NotNull
     private SeatType ticketSeatType;
 
     private Flight flight;
 
     private FlightUser flightUser;
+
+    public LocalDate getFlightDate() {
+        return flightDate;
+    }
+
+    public void setFlightDate(LocalDate flightDate) {
+        this.flightDate = flightDate;
+    }
 
     public Integer getTicketId() {
         return ticketId;

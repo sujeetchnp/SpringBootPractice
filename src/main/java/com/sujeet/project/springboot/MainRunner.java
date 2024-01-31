@@ -2,10 +2,10 @@ package com.sujeet.project.springboot;
 
 
 import com.sujeet.project.springboot.entity.*;
+import com.sujeet.project.springboot.inf.FlightRadarService;
 import com.sujeet.project.springboot.model.SeatType;
 import com.sujeet.project.springboot.repository.*;
 import com.sujeet.project.springboot.service.FlightDimensionService;
-import com.sujeet.project.springboot.service.FlightService;
 import com.sujeet.project.springboot.service.FlightTicketService;
 import com.sujeet.project.springboot.service.FlightUserService;
 import org.springframework.boot.SpringApplication;
@@ -36,11 +36,14 @@ public class MainRunner {
 //        MyAppService myAppService = context.getBean(MyAppService.class);
 //        myAppService.printAppName();
 
-        FlightService flightService = context.getBean(FlightService.class);
-        flightService.setTemp("abc");
-        System.out.println(flightService.getTemp());
-        FlightService flightService1 = context.getBean(FlightService.class);
-        System.out.println(flightService1.getTemp());
+        FlightRadarService flightRadarService = context.getBean(FlightRadarService.class);
+        flightRadarService.getFlightLocation("Royal Nepal Airlines");
+
+//        FlightService flightService = context.getBean(FlightService.class);
+//        flightService.setTemp("abc");
+//        System.out.println(flightService.getTemp());
+//        FlightService flightService1 = context.getBean(FlightService.class);
+//        System.out.println(flightService1.getTemp());
 //        System.out.println(flightService.getAllFlights());
 //        flightService.multipleOperation();
 

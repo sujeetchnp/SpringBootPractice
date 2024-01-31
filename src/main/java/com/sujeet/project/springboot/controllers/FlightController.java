@@ -1,10 +1,12 @@
 package com.sujeet.project.springboot.controllers;
 
+import com.sujeet.project.springboot.exception.DataIntegrityViolationException;
 import com.sujeet.project.springboot.model.Flight;
 import com.sujeet.project.springboot.service.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -26,7 +28,10 @@ public class FlightController {
 
     @GetMapping("/detail")
     public Flight getFlightById(@RequestParam("flightId") Integer id) {
-        return flightService.getFlightById(id);
+
+        Flight flightById = flightService.getFlightById(id);
+        return flightById;
+
     }
 
     @GetMapping("/srcdest")
@@ -41,7 +46,10 @@ public class FlightController {
     }
 
     @PostMapping("/save")
-    public String saveFlight(@RequestBody Flight flight) {
+    public String saveFlight(@Valid @RequestBody Flight flight) {
+        if (flight.getfId() != null && flightService.existsById(flight.getfId())) {
+            throw new DataIntegrityViolationException("Flight with ID " + flight.getfId() + " already exists.");
+        }
         flightService.insertFlights(flight);
         return "Flight saved successfully";
     }
